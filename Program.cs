@@ -15,8 +15,12 @@ namespace MyApp
                 Console.WriteLine("Do you love this channel? (yes/no)");
                 userOpt = Console.ReadLine().ToUpper();
 
+                if (userOpt == "YES")
+                {
+                    Console.WriteLine($"Enjoy watching channel {channelNumber}");
+                }
+
             } while (userOpt == "NO");
-            Console.WriteLine($"Enjoy watching channel {channelNumber}");
             Environment.Exit(0);
         }
     }
