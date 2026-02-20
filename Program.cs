@@ -4,10 +4,11 @@ namespace MyApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             int channelNumber = 0;
             string userOpt;
+
             do
             {
                 channelNumber++;
@@ -15,13 +16,20 @@ namespace MyApp
                 Console.WriteLine("Do you love this channel? (yes/no)");
                 userOpt = Console.ReadLine().ToUpper();
 
-                if (userOpt == "YES")
+                if (userOpt != "YES" && userOpt != "NO")
                 {
-                    Console.WriteLine($"Enjoy watching channel {channelNumber}");
+                    ValidateUserInput();
                 }
 
-            } while (userOpt == "NO");
+            } while (userOpt != "YES");
+            Console.WriteLine($"Enjoy the channel {channelNumber}!");
             Environment.Exit(0);
+        }
+
+        static void ValidateUserInput()
+        {
+            Console.WriteLine("Invalid input. Please enter 'yes' or 'no'.");
+            Main();
         }
     }
 }
